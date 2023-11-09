@@ -45,9 +45,14 @@ public class Veterinary implements Serializable {
     @JsonIgnoreProperties(value = { "veterinary", "owner" }, allowSetters = true)
     private Set<Cat> cats = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "veterinary")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "owner", "veterinary" }, allowSetters = true)
+    private Set<Dog> dogs = new HashSet<>();
+
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "veterinaries")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "cats", "veterinaries" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "cats", "dogs", "veterinaries" }, allowSetters = true)
     private Set<Owner> owners = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -158,6 +163,37 @@ public class Veterinary implements Serializable {
     public Veterinary removeCat(Cat cat) {
         this.cats.remove(cat);
         cat.setVeterinary(null);
+        return this;
+    }
+
+    public Set<Dog> getDogs() {
+        return this.dogs;
+    }
+
+    public void setDogs(Set<Dog> dogs) {
+        if (this.dogs != null) {
+            this.dogs.forEach(i -> i.setVeterinary(null));
+        }
+        if (dogs != null) {
+            dogs.forEach(i -> i.setVeterinary(this));
+        }
+        this.dogs = dogs;
+    }
+
+    public Veterinary dogs(Set<Dog> dogs) {
+        this.setDogs(dogs);
+        return this;
+    }
+
+    public Veterinary addDog(Dog dog) {
+        this.dogs.add(dog);
+        dog.setVeterinary(this);
+        return this;
+    }
+
+    public Veterinary removeDog(Dog dog) {
+        this.dogs.remove(dog);
+        dog.setVeterinary(null);
         return this;
     }
 

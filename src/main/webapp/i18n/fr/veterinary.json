@@ -24,6 +24,7 @@
       "address": "Address",
       "phoneNumber": "Phone Number",
       "cat": "Cat",
+      "dog": "Dog",
       "owner": "Owner"
     }
   }

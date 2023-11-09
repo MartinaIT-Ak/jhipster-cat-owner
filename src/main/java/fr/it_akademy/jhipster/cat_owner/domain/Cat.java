@@ -36,11 +36,11 @@ public class Cat implements Serializable {
     private String healtStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "cats", "owners" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "cats", "dogs", "owners" }, allowSetters = true)
     private Veterinary veterinary;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "cats", "veterinaries" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "cats", "dogs", "veterinaries" }, allowSetters = true)
     private Owner owner;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here

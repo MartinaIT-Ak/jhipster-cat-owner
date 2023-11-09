@@ -55,6 +55,9 @@ public class CacheConfiguration {
             createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Veterinary.class.getName());
             createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Veterinary.class.getName() + ".cats");
             createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Veterinary.class.getName() + ".owners");
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Dog.class.getName());
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Owner.class.getName() + ".dogs");
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Veterinary.class.getName() + ".dogs");
             // jhipster-needle-ehcache-add-entry
         };
     }

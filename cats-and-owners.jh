@@ -21,14 +21,23 @@ entity Veterinary {
     phoneNumber Long
 }
 
+entity Dog {
+	name String
+    race String
+    age Long
+    healthStatus String
+}
+
 relationship OneToMany {
 	Owner{cats} to Cat
     Veterinary to Cat
+    Owner to Dog
+    Veterinary to Dog
 }
 
 relationship ManyToMany {
 	Owner to Veterinary
 }
 
-dto Cat, Owner, Veterinary with mapstruct
-service Cat, Owner, Veterinary with serviceImpl
+dto Cat, Owner, Veterinary, Dog with mapstruct
+service Cat, Owner, Veterinary, Dog with serviceImpl

@@ -1,20 +1,20 @@
 import { IOwner, NewOwner } from './owner.model';
 
 export const sampleWithRequiredData: IOwner = {
-  id: 13841,
+  id: 23384,
 };
 
 export const sampleWithPartialData: IOwner = {
-  id: 2636,
-  lastName: 'Mayert',
+  id: 1153,
+  lastName: 'Hauck',
 };
 
 export const sampleWithFullData: IOwner = {
-  id: 1153,
-  firstName: 'Roxanne',
-  lastName: "D'Amore",
-  address: 'unto opposite',
-  phoneNumber: 19344,
+  id: 5625,
+  firstName: 'Kenyatta',
+  lastName: 'Mayert',
+  address: 'greedily territory',
+  phoneNumber: 22623,
 };
 
 export const sampleWithNewData: NewOwner = {

@@ -1,0 +1,121 @@
+<div>
+  <h2 id="page-heading" data-cy="DogHeading">
+    <span jhiTranslate="archiLogicielApp.dog.home.title">Dogs</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="archiLogicielApp.dog.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-dog"
+        [routerLink]="['/dog/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="archiLogicielApp.dog.home.createLabel">Create a new Dog</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="dogs?.length === 0">
+    <span jhiTranslate="archiLogicielApp.dog.home.notFound">No Dogs found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="dogs && dogs.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="name">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.dog.name">Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="race">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.dog.race">Race</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="age">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.dog.age">Age</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="healthStatus">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.dog.healthStatus">Health Status</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="owner.id">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.dog.owner">Owner</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="veterinary.id">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.dog.veterinary">Veterinary</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dog of dogs; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/dog', dog.id, 'view']">{{ dog.id }}</a>
+          </td>
+          <td>{{ dog.name }}</td>
+          <td>{{ dog.race }}</td>
+          <td>{{ dog.age }}</td>
+          <td>{{ dog.healthStatus }}</td>
+          <td>
+            <div *ngIf="dog.owner">
+              <a [routerLink]="['/owner', dog.owner.id, 'view']">{{ dog.owner.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="dog.veterinary">
+              <a [routerLink]="['/veterinary', dog.veterinary.id, 'view']">{{ dog.veterinary.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/dog', dog.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </a>
+
+              <a [routerLink]="['/dog', dog.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </a>
+
+              <button type="submit" (click)="delete(dog)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

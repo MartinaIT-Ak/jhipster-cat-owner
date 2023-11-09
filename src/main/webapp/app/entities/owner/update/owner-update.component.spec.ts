@@ -50,10 +50,10 @@ describe('Owner Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Veterinary query and add missing value', () => {
       const owner: IOwner = { id: 456 };
-      const veterinaries: IVeterinary[] = [{ id: 3077 }];
+      const veterinaries: IVeterinary[] = [{ id: 7578 }];
       owner.veterinaries = veterinaries;
 
-      const veterinaryCollection: IVeterinary[] = [{ id: 22348 }];
+      const veterinaryCollection: IVeterinary[] = [{ id: 6236 }];
       jest.spyOn(veterinaryService, 'query').mockReturnValue(of(new HttpResponse({ body: veterinaryCollection })));
       const additionalVeterinaries = [...veterinaries];
       const expectedCollection: IVeterinary[] = [...additionalVeterinaries, ...veterinaryCollection];
@@ -72,7 +72,7 @@ describe('Owner Management Update Component', () => {
 
     it('Should update editForm', () => {
       const owner: IOwner = { id: 456 };
-      const veterinary: IVeterinary = { id: 25839 };
+      const veterinary: IVeterinary = { id: 2137 };
       owner.veterinaries = [veterinary];
 
       activatedRoute.data = of({ owner });
