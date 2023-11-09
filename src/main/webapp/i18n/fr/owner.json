@@ -1,0 +1,29 @@
+{
+  "archiLogicielApp": {
+    "owner": {
+      "home": {
+        "title": "Owners",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Owner",
+        "createOrEditLabel": "Créer ou éditer un Owner",
+        "notFound": "Aucun Owner trouvé"
+      },
+      "created": "Un nouveau Owner a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Owner avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Owner avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Owner {{ id }} ?"
+      },
+      "detail": {
+        "title": "Owner"
+      },
+      "id": "ID",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "address": "Address",
+      "phoneNumber": "Phone Number",
+      "cats": "Cats",
+      "veterinary": "Veterinary"
+    }
+  }
+}

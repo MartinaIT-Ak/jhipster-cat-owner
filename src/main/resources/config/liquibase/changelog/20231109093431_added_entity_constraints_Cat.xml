@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Cat.
+    -->
+    <changeSet id="20231109093431-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="veterinary_id"
+                                 baseTableName="cat"
+                                 constraintName="fk_cat__veterinary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="veterinary"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="owner_id"
+                                 baseTableName="cat"
+                                 constraintName="fk_cat__owner_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="owner"
+                                 />
+    </changeSet>
+</databaseChangeLog>

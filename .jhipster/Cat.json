@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093431",
+  "dto": "mapstruct",
+  "entityTableName": "cat",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "race",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "healtStatus",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Cat",
+  "relationships": [
+    {
+      "otherEntityName": "veterinary",
+      "otherEntityRelationshipName": "cat",
+      "relationshipName": "veterinary",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

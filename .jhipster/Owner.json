@@ -1,0 +1,42 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093531",
+  "dto": "mapstruct",
+  "entityTableName": "owner",
+  "fields": [
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Owner",
+  "relationships": [
+    {
+      "otherEntityName": "cat",
+      "relationshipName": "cats",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "veterinary",
+      "otherEntityRelationshipName": "owner",
+      "relationshipName": "veterinary",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}
