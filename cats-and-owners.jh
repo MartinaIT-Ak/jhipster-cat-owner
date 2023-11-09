@@ -1,0 +1,34 @@
+
+entity Cat {
+	name String
+    race String
+	age Long
+    healtStatus String
+}
+
+entity Owner {
+	firstName String
+    lastName String
+    address String
+    phoneNumber Long
+}
+
+entity Veterinary {
+	title String
+	firstName String
+    lastName String
+    address String
+    phoneNumber Long
+}
+
+relationship OneToMany {
+	Owner{cats} to Cat
+    Veterinary to Cat
+}
+
+relationship ManyToMany {
+	Owner to Veterinary
+}
+
+dto Cat, Owner, Veterinary with mapstruct
+service Cat, Owner, Veterinary with serviceImpl
