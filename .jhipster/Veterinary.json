@@ -1,0 +1,47 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093631",
+  "dto": "mapstruct",
+  "entityTableName": "veterinary",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "firstName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phoneNumber",
+      "fieldType": "Long"
+    }
+  ],
+  "name": "Veterinary",
+  "relationships": [
+    {
+      "otherEntityName": "cat",
+      "otherEntityRelationshipName": "veterinary",
+      "relationshipName": "cat",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "owner",
+      "otherEntityRelationshipName": "veterinary",
+      "relationshipName": "owner",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

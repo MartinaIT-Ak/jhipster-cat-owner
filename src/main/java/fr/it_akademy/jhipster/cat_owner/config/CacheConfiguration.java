@@ -48,6 +48,13 @@ public class CacheConfiguration {
             createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.User.class.getName());
             createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Authority.class.getName());
             createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.User.class.getName() + ".authorities");
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Cat.class.getName());
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Owner.class.getName());
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Owner.class.getName() + ".cats");
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Owner.class.getName() + ".veterinaries");
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Veterinary.class.getName());
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Veterinary.class.getName() + ".cats");
+            createCache(cm, fr.it_akademy.jhipster.cat_owner.domain.Veterinary.class.getName() + ".owners");
             // jhipster-needle-ehcache-add-entry
         };
     }

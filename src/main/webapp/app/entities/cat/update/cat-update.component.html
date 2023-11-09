@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-cat-heading" data-cy="CatCreateUpdateHeading" jhiTranslate="archiLogicielApp.cat.home.createOrEditLabel">
+        Create or edit a Cat
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="archiLogicielApp.cat.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="archiLogicielApp.cat.race" for="field_race">Race</label>
+          <input type="text" class="form-control" name="race" id="field_race" data-cy="race" formControlName="race" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="archiLogicielApp.cat.age" for="field_age">Age</label>
+          <input type="number" class="form-control" name="age" id="field_age" data-cy="age" formControlName="age" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="archiLogicielApp.cat.healtStatus" for="field_healtStatus">Healt Status</label>
+          <input
+            type="text"
+            class="form-control"
+            name="healtStatus"
+            id="field_healtStatus"
+            data-cy="healtStatus"
+            formControlName="healtStatus"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="archiLogicielApp.cat.veterinary" for="field_veterinary">Veterinary</label>
+          <select
+            class="form-control"
+            id="field_veterinary"
+            data-cy="veterinary"
+            name="veterinary"
+            formControlName="veterinary"
+            [compareWith]="compareVeterinary"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="veterinaryOption" *ngFor="let veterinaryOption of veterinariesSharedCollection">
+              {{ veterinaryOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" jhiTranslate="archiLogicielApp.cat.owner" for="field_owner">Owner</label>
+          <select class="form-control" id="field_owner" data-cy="owner" name="owner" formControlName="owner" [compareWith]="compareOwner">
+            <option [ngValue]="null"></option>
+            <option [ngValue]="ownerOption" *ngFor="let ownerOption of ownersSharedCollection">{{ ownerOption.id }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

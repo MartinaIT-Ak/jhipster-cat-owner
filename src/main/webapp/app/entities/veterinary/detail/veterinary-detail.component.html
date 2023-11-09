@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="veterinary">
+      <h2 data-cy="veterinaryDetailsHeading"><span jhiTranslate="archiLogicielApp.veterinary.detail.title">Veterinary</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ veterinary.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="archiLogicielApp.veterinary.title">Title</span></dt>
+        <dd>
+          <span>{{ veterinary.title }}</span>
+        </dd>
+        <dt><span jhiTranslate="archiLogicielApp.veterinary.firstName">First Name</span></dt>
+        <dd>
+          <span>{{ veterinary.firstName }}</span>
+        </dd>
+        <dt><span jhiTranslate="archiLogicielApp.veterinary.lastName">Last Name</span></dt>
+        <dd>
+          <span>{{ veterinary.lastName }}</span>
+        </dd>
+        <dt><span jhiTranslate="archiLogicielApp.veterinary.address">Address</span></dt>
+        <dd>
+          <span>{{ veterinary.address }}</span>
+        </dd>
+        <dt><span jhiTranslate="archiLogicielApp.veterinary.phoneNumber">Phone Number</span></dt>
+        <dd>
+          <span>{{ veterinary.phoneNumber }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/veterinary', veterinary.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

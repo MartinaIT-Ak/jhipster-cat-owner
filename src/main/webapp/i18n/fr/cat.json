@@ -1,0 +1,29 @@
+{
+  "archiLogicielApp": {
+    "cat": {
+      "home": {
+        "title": "Cats",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Cat",
+        "createOrEditLabel": "Créer ou éditer un Cat",
+        "notFound": "Aucun Cat trouvé"
+      },
+      "created": "Un nouveau Cat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Cat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Cat"
+      },
+      "id": "ID",
+      "name": "Name",
+      "race": "Race",
+      "age": "Age",
+      "healtStatus": "Healt Status",
+      "veterinary": "Veterinary",
+      "owner": "Owner"
+    }
+  }
+}

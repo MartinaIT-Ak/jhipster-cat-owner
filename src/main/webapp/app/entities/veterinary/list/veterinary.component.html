@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="VeterinaryHeading">
+    <span jhiTranslate="archiLogicielApp.veterinary.home.title">Veterinaries</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="archiLogicielApp.veterinary.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-veterinary"
+        [routerLink]="['/veterinary/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="archiLogicielApp.veterinary.home.createLabel">Create a new Veterinary</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="veterinaries?.length === 0">
+    <span jhiTranslate="archiLogicielApp.veterinary.home.notFound">No Veterinaries found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="veterinaries && veterinaries.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="title">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.veterinary.title">Title</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="firstName">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.veterinary.firstName">First Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="lastName">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.veterinary.lastName">Last Name</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="address">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.veterinary.address">Address</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="phoneNumber">
+            <div class="d-flex">
+              <span jhiTranslate="archiLogicielApp.veterinary.phoneNumber">Phone Number</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let veterinary of veterinaries; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/veterinary', veterinary.id, 'view']">{{ veterinary.id }}</a>
+          </td>
+          <td>{{ veterinary.title }}</td>
+          <td>{{ veterinary.firstName }}</td>
+          <td>{{ veterinary.lastName }}</td>
+          <td>{{ veterinary.address }}</td>
+          <td>{{ veterinary.phoneNumber }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <a [routerLink]="['/veterinary', veterinary.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </a>
+
+              <a [routerLink]="['/veterinary', veterinary.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </a>
+
+              <button type="submit" (click)="delete(veterinary)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

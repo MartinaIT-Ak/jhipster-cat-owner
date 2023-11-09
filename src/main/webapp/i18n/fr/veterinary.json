@@ -1,0 +1,30 @@
+{
+  "archiLogicielApp": {
+    "veterinary": {
+      "home": {
+        "title": "Veterinaries",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Veterinary",
+        "createOrEditLabel": "Créer ou éditer un Veterinary",
+        "notFound": "Aucun Veterinary trouvé"
+      },
+      "created": "Un nouveau Veterinary a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Veterinary avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Veterinary avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Veterinary {{ id }} ?"
+      },
+      "detail": {
+        "title": "Veterinary"
+      },
+      "id": "ID",
+      "title": "Title",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "address": "Address",
+      "phoneNumber": "Phone Number",
+      "cat": "Cat",
+      "owner": "Owner"
+    }
+  }
+}
