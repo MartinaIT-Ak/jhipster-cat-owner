@@ -7,13 +7,13 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
- * A Cat.
+ * A Dog.
  */
 @Entity
-@Table(name = "cat")
+@Table(name = "dog")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class Cat implements Serializable {
+public class Dog implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,16 +32,16 @@ public class Cat implements Serializable {
     @Column(name = "age")
     private Long age;
 
-    @Column(name = "healt_status")
-    private String healtStatus;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties(value = { "cats", "dogs", "owners" }, allowSetters = true)
-    private Veterinary veterinary;
+    @Column(name = "health_status")
+    private String healthStatus;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = { "cats", "dogs", "veterinaries" }, allowSetters = true)
     private Owner owner;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "cats", "dogs", "owners" }, allowSetters = true)
+    private Veterinary veterinary;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -49,7 +49,7 @@ public class Cat implements Serializable {
         return this.id;
     }
 
-    public Cat id(Long id) {
+    public Dog id(Long id) {
         this.setId(id);
         return this;
     }
@@ -62,7 +62,7 @@ public class Cat implements Serializable {
         return this.name;
     }
 
-    public Cat name(String name) {
+    public Dog name(String name) {
         this.setName(name);
         return this;
     }
@@ -75,7 +75,7 @@ public class Cat implements Serializable {
         return this.race;
     }
 
-    public Cat race(String race) {
+    public Dog race(String race) {
         this.setRace(race);
         return this;
     }
@@ -88,7 +88,7 @@ public class Cat implements Serializable {
         return this.age;
     }
 
-    public Cat age(Long age) {
+    public Dog age(Long age) {
         this.setAge(age);
         return this;
     }
@@ -97,30 +97,17 @@ public class Cat implements Serializable {
         this.age = age;
     }
 
-    public String getHealtStatus() {
-        return this.healtStatus;
+    public String getHealthStatus() {
+        return this.healthStatus;
     }
 
-    public Cat healtStatus(String healtStatus) {
-        this.setHealtStatus(healtStatus);
+    public Dog healthStatus(String healthStatus) {
+        this.setHealthStatus(healthStatus);
         return this;
     }
 
-    public void setHealtStatus(String healtStatus) {
-        this.healtStatus = healtStatus;
-    }
-
-    public Veterinary getVeterinary() {
-        return this.veterinary;
-    }
-
-    public void setVeterinary(Veterinary veterinary) {
-        this.veterinary = veterinary;
-    }
-
-    public Cat veterinary(Veterinary veterinary) {
-        this.setVeterinary(veterinary);
-        return this;
+    public void setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus;
     }
 
     public Owner getOwner() {
@@ -131,8 +118,21 @@ public class Cat implements Serializable {
         this.owner = owner;
     }
 
-    public Cat owner(Owner owner) {
+    public Dog owner(Owner owner) {
         this.setOwner(owner);
+        return this;
+    }
+
+    public Veterinary getVeterinary() {
+        return this.veterinary;
+    }
+
+    public void setVeterinary(Veterinary veterinary) {
+        this.veterinary = veterinary;
+    }
+
+    public Dog veterinary(Veterinary veterinary) {
+        this.setVeterinary(veterinary);
         return this;
     }
 
@@ -143,10 +143,10 @@ public class Cat implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Cat)) {
+        if (!(o instanceof Dog)) {
             return false;
         }
-        return getId() != null && getId().equals(((Cat) o).getId());
+        return getId() != null && getId().equals(((Dog) o).getId());
     }
 
     @Override
@@ -158,12 +158,12 @@ public class Cat implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "Cat{" +
+        return "Dog{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", race='" + getRace() + "'" +
             ", age=" + getAge() +
-            ", healtStatus='" + getHealtStatus() + "'" +
+            ", healthStatus='" + getHealthStatus() + "'" +
             "}";
     }
 }

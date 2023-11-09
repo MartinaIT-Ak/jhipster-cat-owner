@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20231109093431",
+  "dto": "mapstruct",
+  "entityTableName": "dog",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "race",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "healthStatus",
+      "fieldType": "String"
+    }
+  ],
+  "name": "Dog",
+  "relationships": [
+    {
+      "otherEntityName": "owner",
+      "otherEntityRelationshipName": "dog",
+      "relationshipName": "owner",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "veterinary",
+      "otherEntityRelationshipName": "dog",
+      "relationshipName": "veterinary",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceImpl"
+}

@@ -1,25 +1,24 @@
 import { IVeterinary, NewVeterinary } from './veterinary.model';
 
 export const sampleWithRequiredData: IVeterinary = {
-  id: 7578,
+  id: 9049,
 };
 
 export const sampleWithPartialData: IVeterinary = {
-  id: 4551,
-  title: 'show ha agenda',
-  firstName: 'Laverna',
-  lastName: 'Goodwin',
-  address: 'truthfully ack',
-  phoneNumber: 21474,
+  id: 31817,
+  title: 'mollycoddle jog before',
+  firstName: 'Fannie',
+  lastName: 'Hermann',
+  phoneNumber: 25085,
 };
 
 export const sampleWithFullData: IVeterinary = {
-  id: 24120,
-  title: 'whose ranch scour',
-  firstName: 'Nolan',
-  lastName: 'Nicolas',
-  address: 'mandate',
-  phoneNumber: 9592,
+  id: 1547,
+  title: 'gadzooks full knot',
+  firstName: 'Dannie',
+  lastName: 'Rath',
+  address: 'sorrow',
+  phoneNumber: 25354,
 };
 
 export const sampleWithNewData: NewVeterinary = {

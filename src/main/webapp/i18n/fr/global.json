@@ -10,7 +10,8 @@
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
         "cat": "Cat",
         "owner": "Owner",
-        "veterinary": "Veterinary"
+        "veterinary": "Veterinary",
+        "dog": "Dog"
       },
       "account": {
         "main": "Compte",

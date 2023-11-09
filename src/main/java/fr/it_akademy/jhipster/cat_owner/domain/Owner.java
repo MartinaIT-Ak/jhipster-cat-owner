@@ -42,6 +42,11 @@ public class Owner implements Serializable {
     @JsonIgnoreProperties(value = { "veterinary", "owner" }, allowSetters = true)
     private Set<Cat> cats = new HashSet<>();
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "owner", "veterinary" }, allowSetters = true)
+    private Set<Dog> dogs = new HashSet<>();
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
         name = "rel_owner__veterinary",
@@ -49,7 +54,7 @@ public class Owner implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "veterinary_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "cats", "owners" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "cats", "dogs", "owners" }, allowSetters = true)
     private Set<Veterinary> veterinaries = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -147,6 +152,37 @@ public class Owner implements Serializable {
     public Owner removeCats(Cat cat) {
         this.cats.remove(cat);
         cat.setOwner(null);
+        return this;
+    }
+
+    public Set<Dog> getDogs() {
+        return this.dogs;
+    }
+
+    public void setDogs(Set<Dog> dogs) {
+        if (this.dogs != null) {
+            this.dogs.forEach(i -> i.setOwner(null));
+        }
+        if (dogs != null) {
+            dogs.forEach(i -> i.setOwner(this));
+        }
+        this.dogs = dogs;
+    }
+
+    public Owner dogs(Set<Dog> dogs) {
+        this.setDogs(dogs);
+        return this;
+    }
+
+    public Owner addDog(Dog dog) {
+        this.dogs.add(dog);
+        dog.setOwner(this);
+        return this;
+    }
+
+    public Owner removeDog(Dog dog) {
+        this.dogs.remove(dog);
+        dog.setOwner(null);
         return this;
     }
 

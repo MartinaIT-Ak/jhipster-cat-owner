@@ -23,6 +23,7 @@
       "address": "Address",
       "phoneNumber": "Phone Number",
       "cats": "Cats",
+      "dog": "Dog",
       "veterinary": "Veterinary"
     }
   }

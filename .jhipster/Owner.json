@@ -30,6 +30,13 @@
       "relationshipType": "one-to-many"
     },
     {
+      "otherEntityName": "dog",
+      "otherEntityRelationshipName": "owner",
+      "relationshipName": "dog",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
       "otherEntityName": "veterinary",
       "otherEntityRelationshipName": "owner",
       "relationshipName": "veterinary",

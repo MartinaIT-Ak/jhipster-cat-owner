@@ -1,0 +1,29 @@
+{
+  "archiLogicielApp": {
+    "dog": {
+      "home": {
+        "title": "Dogs",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Dog",
+        "createOrEditLabel": "Créer ou éditer un Dog",
+        "notFound": "Aucun Dog trouvé"
+      },
+      "created": "Un nouveau Dog a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dog avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dog avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Dog {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dog"
+      },
+      "id": "ID",
+      "name": "Name",
+      "race": "Race",
+      "age": "Age",
+      "healthStatus": "Health Status",
+      "owner": "Owner",
+      "veterinary": "Veterinary"
+    }
+  }
+}

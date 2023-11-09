@@ -1,6 +1,7 @@
 package fr.it_akademy.jhipster.cat_owner.domain;
 
 import static fr.it_akademy.jhipster.cat_owner.domain.CatTestSamples.*;
+import static fr.it_akademy.jhipster.cat_owner.domain.DogTestSamples.*;
 import static fr.it_akademy.jhipster.cat_owner.domain.OwnerTestSamples.*;
 import static fr.it_akademy.jhipster.cat_owner.domain.VeterinaryTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,6 +47,28 @@ class VeterinaryTest {
         veterinary.setCats(new HashSet<>());
         assertThat(veterinary.getCats()).doesNotContain(catBack);
         assertThat(catBack.getVeterinary()).isNull();
+    }
+
+    @Test
+    void dogTest() throws Exception {
+        Veterinary veterinary = getVeterinaryRandomSampleGenerator();
+        Dog dogBack = getDogRandomSampleGenerator();
+
+        veterinary.addDog(dogBack);
+        assertThat(veterinary.getDogs()).containsOnly(dogBack);
+        assertThat(dogBack.getVeterinary()).isEqualTo(veterinary);
+
+        veterinary.removeDog(dogBack);
+        assertThat(veterinary.getDogs()).doesNotContain(dogBack);
+        assertThat(dogBack.getVeterinary()).isNull();
+
+        veterinary.dogs(new HashSet<>(Set.of(dogBack)));
+        assertThat(veterinary.getDogs()).containsOnly(dogBack);
+        assertThat(dogBack.getVeterinary()).isEqualTo(veterinary);
+
+        veterinary.setDogs(new HashSet<>());
+        assertThat(veterinary.getDogs()).doesNotContain(dogBack);
+        assertThat(dogBack.getVeterinary()).isNull();
     }
 
     @Test
